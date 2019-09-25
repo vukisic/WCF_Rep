@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Common.Cryptography
 {
-    public class SHA1Manager
+    public class SHA1Manager : IDisposable
     {
         private SHA1 sha;
 
@@ -22,6 +22,11 @@ namespace Common.Cryptography
         public string ComputeHash(string input)
         {
             return Convert.ToBase64String(sha.ComputeHash(Convert.FromBase64String(input)));
+        }
+
+        public void Dispose()
+        {
+            sha = null;
         }
     }
 }

@@ -9,19 +9,22 @@ using System.Threading.Tasks;
 namespace Common.Models
 {
     [DataContract]
-    public class LogInCredentials
+    public class RegisterCredentials
     {
+        [DataMember]
+        public string Name { get; set; }
         [DataMember]
         public string Username { get; set; }
         [DataMember]
         public string Password { get; set; }
 
-        public LogInCredentials(string username, string password)
+        public RegisterCredentials(string name, string username, string password )
         {
+            this.Name = name;
             this.Username = username;
-            using(SHA1Manager sha = new SHA1Manager())
+            using(AesCipher aes = new AesCipher())
             {
-                this.Password = sha.ComputeHash(password);
+                this.Password = aes.Encrypt(password);
             }
         }
     }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Common.Cryptography
 {
-    public class AesCipher : IAesCipher
+    public class AesCipher : IAesCipher,IDisposable
     {
         private readonly string key;
         private readonly string iv;
@@ -86,6 +86,6 @@ namespace Common.Cryptography
             }
         }
 
-
+        public void Dispose() { }
     }
 }

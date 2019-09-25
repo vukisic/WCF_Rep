@@ -49,6 +49,7 @@
     <Compile Include="Cryptography\IAesCipher.cs" />
     <Compile Include="Cryptography\SHA1Manager.cs" />
     <Compile Include="Models\LogInCredentials.cs" />
+    <Compile Include="Models\RegisterCredentials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
