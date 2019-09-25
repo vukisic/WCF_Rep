@@ -22,9 +22,9 @@ namespace Common.Models
         {
             this.Name = name;
             this.Username = username;
-            using(AesCipher aes = new AesCipher())
+            using (SHA1Manager sha = new SHA1Manager())
             {
-                this.Password = aes.Encrypt(password);
+                this.Password = sha.ComputeHash(password);
             }
         }
     }

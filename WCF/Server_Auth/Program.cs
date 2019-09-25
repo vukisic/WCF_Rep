@@ -1,4 +1,5 @@
 ﻿using Common.Cryptography;
+using Server_Auth.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,14 @@ namespace Server_Auth
     {
         static void Main(string[] args)
         {
-            Console.ReadLine();
+            using(WCFService service = new WCFService("AuthService", typeof(UserAuthService)))
+            {
+                service.Open();
+
+
+                Console.ReadLine();
+            }
+            
         }
     }
 }
