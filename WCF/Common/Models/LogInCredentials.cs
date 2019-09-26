@@ -1,10 +1,5 @@
 ﻿using Common.Cryptography;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Common.Models
 {
@@ -13,13 +8,14 @@ namespace Common.Models
     {
         [DataMember]
         public string Username { get; set; }
+
         [DataMember]
         public string Password { get; set; }
 
         public LogInCredentials(string username, string password)
         {
             this.Username = username;
-            using(SHA1Manager sha = new SHA1Manager())
+            using (SHA1Manager sha = new SHA1Manager())
             {
                 this.Password = sha.ComputeHash(password);
             }

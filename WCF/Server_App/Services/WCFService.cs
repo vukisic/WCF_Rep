@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Server_App.Services
 {
@@ -35,12 +31,9 @@ namespace Server_App.Services
                     host.Open();
                     Console.WriteLine($"Service Host for {name} is opened!");
                 }
-
-
             }
             catch (Exception)
             {
-
                 Console.WriteLine($"Service Host for {name} failed to open!");
             }
         }
@@ -55,11 +48,9 @@ namespace Server_App.Services
                     host = null;
                     Console.WriteLine($"Service Host for {name} is closed!");
                 }
-
             }
             catch (Exception)
             {
-
                 Console.WriteLine($"Service Host for {name} failed to close!");
             }
         }

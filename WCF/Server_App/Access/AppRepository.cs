@@ -1,10 +1,7 @@
 ﻿using Common.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Server_App.Access
 {
@@ -33,7 +30,7 @@ namespace Server_App.Access
 
         public double State(string username)
         {
-            var user = context.Products.Include(x=>x.Account).SingleOrDefault(x => x.Username == username);
+            var user = context.Products.Include(x => x.Account).SingleOrDefault(x => x.Username == username);
             if (user != null)
             {
                 return user.Account.Amount;
@@ -46,7 +43,7 @@ namespace Server_App.Access
             var user = context.Products.Include(x => x.Account).SingleOrDefault(x => x.Username == username);
             if (user != null)
             {
-                if(user.Account.Amount - amount >= 0)
+                if (user.Account.Amount - amount >= 0)
                 {
                     user.Account.Amount -= amount;
                     context.SaveChanges();

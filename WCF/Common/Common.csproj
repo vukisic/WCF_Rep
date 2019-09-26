@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IAppAuthContract.cs" />
     <Compile Include="Contracts\IUserAccountContract.cs" />
     <Compile Include="Contracts\IUserAuthContract.cs" />
     <Compile Include="Cryptography\AesCipher.cs" />

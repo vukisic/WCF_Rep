@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Common.Cryptography;
+﻿using Common.Cryptography;
 using Common.Models;
+using System.Linq;
 
 namespace Server_Auth.Access
 {
@@ -12,6 +8,7 @@ namespace Server_Auth.Access
     {
         private DataContext context;
         private IAesCipher cipher;
+
         public AuthRepository()
         {
             context = new DataContext();
@@ -26,7 +23,7 @@ namespace Server_Auth.Access
         public bool IsAuthenticate(string username)
         {
             var user = context.Products.SingleOrDefault(x => x.Username == username);
-            if(user != null)
+            if (user != null)
             {
                 return user.IsAuth != false;
             }
@@ -38,7 +35,7 @@ namespace Server_Auth.Access
             var user = context.Products.SingleOrDefault(x => x.Username == credentials.Username);
             if (user != null)
             {
-                if(user.PasswordHash == credentials.Password)
+                if (user.PasswordHash == credentials.Password)
                 {
                     user.IsAuth = true;
                     context.SaveChanges();
@@ -72,7 +69,7 @@ namespace Server_Auth.Access
                     Name = credentials.Name,
                     PasswordHash = credentials.Password,
                     Username = credentials.Username,
-                    Account = new UserAccount() 
+                    Account = new UserAccount()
                 };
                 context.Products.Add(newUser);
                 context.SaveChanges();

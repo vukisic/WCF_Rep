@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Common.Cryptography
 {
-    public class AesCipher : IAesCipher,IDisposable
+    public class AesCipher : IAesCipher, IDisposable
     {
         private readonly string key;
         private readonly string iv;
@@ -23,9 +20,9 @@ namespace Common.Cryptography
         public string Encrypt(string input)
         {
             if (String.IsNullOrEmpty(input))
-                throw new ArgumentNullException(nameof(input),$"{nameof(input)} is null or empty!");
+                throw new ArgumentNullException(nameof(input), $"{nameof(input)} is null or empty!");
             string encrypted = "";
-            using(Aes aes = Aes.Create())
+            using (Aes aes = Aes.Create())
             {
                 aes.Mode = CipherMode.CBC;
                 aes.KeySize = 128;
@@ -33,8 +30,6 @@ namespace Common.Cryptography
                 aes.Padding = PaddingMode.Zeros;
                 aes.Key = Encoding.UTF8.GetBytes(key);
                 aes.IV = Encoding.UTF8.GetBytes(iv);
-
-               
 
                 ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
 
@@ -78,7 +73,6 @@ namespace Common.Cryptography
                         {
                             decrypted = srDecrypt.ReadToEnd();
                         }
-
                     }
                 }
 
@@ -86,6 +80,8 @@ namespace Common.Cryptography
             }
         }
 
-        public void Dispose() { }
+        public void Dispose()
+        {
+        }
     }
 }

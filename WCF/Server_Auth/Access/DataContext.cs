@@ -1,18 +1,13 @@
 ﻿using Common.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Server_Auth.Access
 {
     public class DataContext : DbContext
     {
         public DbSet<AppUser> Products { get; set; }
-        public DbSet<UserAccount> Accounts { get; set;}
+        public DbSet<UserAccount> Accounts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionbuilder)
         {
