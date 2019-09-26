@@ -10,42 +10,58 @@ namespace Server_App.Services
     {
         private IAppRepository repo;
         private IAesCipher cipher;
-
-        public UserAccountService()
+        private IAppAuthContract authService;
+        public  UserAccountService()
         {
             repo = new AppRepository();
             cipher = new AesCipher();
+            authService = null;
+            authService = WCFClient.GetInstance().GetConnection<IAppAuthContract>("AuthService");
         }
 
         public bool Deposite(string token, double amount)
         {
             var username = cipher.Decrypt(token);
-            var result = repo.Deposite(username, amount);
-            if (result)
-                return true;
-            throw new FaultException("Cannot deposite!");
+            if (authService.IsAuthenticate(username))
+            {
+                var result = repo.Deposite(username, amount);
+                if (result)
+                    return true;
+                throw new FaultException("Cannot deposite!");
+            }
+            throw new FaultException("Not Authenticate!");
         }
 
         public double State(string token)
         {
             var username = cipher.Decrypt(token);
-            try
+            if (authService.IsAuthenticate(username))
             {
-                return repo.State(username);
+                try
+                {
+                    return repo.State(username);
+                }
+                catch (Exception)
+                {
+                    throw new FaultException("Account doesn't exist!");
+                }
             }
-            catch (Exception)
-            {
-                throw new FaultException("Account doesn't exist!");
-            }
+            throw new FaultException("Not Authenticate!");
+            
         }
 
         public bool Withdraw(string token, double amount)
         {
             var username = cipher.Decrypt(token);
-            var result = repo.Withdraw(username, amount);
-            if (result)
-                return true;
-            throw new FaultException("Cannot withdraw!");
+            if (authService.IsAuthenticate(username))
+            {
+                var result = repo.Withdraw(username, amount);
+                if (result)
+                    return true;
+                throw new FaultException("Cannot withdraw!");
+            }
+            throw new FaultException("Not Authenticate!");
+           
         }
     }
 }
