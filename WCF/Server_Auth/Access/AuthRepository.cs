@@ -23,7 +23,7 @@ namespace Server_Auth.Access
             return cipher.Encrypt(username);
         }
 
-        public bool isAuthenticate(string username)
+        public bool IsAuthenticate(string username)
         {
             var user = context.Products.SingleOrDefault(x => x.Username == username);
             if(user != null)

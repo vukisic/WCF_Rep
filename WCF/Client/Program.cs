@@ -100,11 +100,16 @@ namespace Client
                 name = Console.ReadLine();
                 Console.Write("Username:");
                 username = Console.ReadLine();
-                Console.Write("Password:");
+                Console.Write("Password[4 chars]:");
                 password = Console.ReadLine();
 
                 if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password) || String.IsNullOrEmpty(name))
                     return;
+
+                if(password.Length != 4)
+                {
+                    Console.WriteLine("--> Password lenght must be 4 <--");
+                }
 
                 try
                 {

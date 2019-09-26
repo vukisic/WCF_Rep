@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server_App.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,13 @@ namespace Server_App
     {
         static void Main(string[] args)
         {
+            using (WCFService service = new WCFService("AppService", typeof(UserAccountService)))
+            {
+                service.Open();
+
+
+                Console.ReadLine();
+            }
         }
     }
 }

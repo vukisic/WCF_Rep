@@ -12,7 +12,7 @@ namespace Server_Auth.Access
         bool LogIn(LogInCredentials credentials);
         bool Register(RegisterCredentials credentials);
 
-        bool isAuthenticate(string username);
+        bool IsAuthenticate(string username);
         string GenerateToken(string username);
         bool LogOut(string username);
     }
