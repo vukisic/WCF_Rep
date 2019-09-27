@@ -50,6 +50,7 @@
     <Compile Include="Cryptography\AesCipher.cs" />
     <Compile Include="Cryptography\IAesCipher.cs" />
     <Compile Include="Cryptography\SHA1Manager.cs" />
+    <Compile Include="Contracts\IReplicationContract.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\LogInCredentials.cs" />
     <Compile Include="Models\RegisterCredentials.cs" />

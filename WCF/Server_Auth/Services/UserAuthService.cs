@@ -13,6 +13,7 @@ namespace Server_Auth.Services
 
         public UserAuthService()
         {
+            //Load from Replicator
             repo = new AuthRepository();
             cipher = new AesCipher();
         }

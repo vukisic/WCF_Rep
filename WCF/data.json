@@ -1,0 +1,56 @@
+[
+  {
+    "$id": "1",
+    "Id": 1,
+    "Name": "Vuk",
+    "Username": "vukisic",
+    "PasswordHash": "G2H9FJZhYq7mty8rZrDHiW5nAls=",
+    "Account": {
+      "$id": "2",
+      "Id": 1,
+      "Amount": 400.0,
+      "User": {
+        "$ref": "1"
+      },
+      "UserId": 1
+    },
+    "IsAuth": false,
+    "AccountId": 0
+  },
+  {
+    "$id": "3",
+    "Id": 2,
+    "Name": "pera",
+    "Username": "pera",
+    "PasswordHash": "ARWxY8+TP3LseIcAx7XJmt45EjM=",
+    "Account": {
+      "$id": "4",
+      "Id": 2,
+      "Amount": 800.0,
+      "User": {
+        "$ref": "3"
+      },
+      "UserId": 2
+    },
+    "IsAuth": true,
+    "AccountId": 0
+  },
+  {
+    "$id": "5",
+    "Id": 3,
+    "Name": "zika",
+    "Username": "zika",
+    "PasswordHash": "ARWxY8+TP3LseIcAx7XJmt45EjM=",
+    "Account": {
+      "$id": "6",
+      "Id": 3,
+      "Amount": 0.0,
+      "User": {
+        "$ref": "5"
+      },
+      "UserId": 3
+    },
+    "IsAuth": true,
+    "AccountId": 0
+  }
+]

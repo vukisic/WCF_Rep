@@ -175,6 +175,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AppAuthService.cs" />
     <Compile Include="Services\UserAuthService.cs" />
+    <Compile Include="Services\WCFClient.cs" />
     <Compile Include="Services\WCFService.cs" />
   </ItemGroup>
   <ItemGroup>
